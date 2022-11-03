@@ -1,5 +1,6 @@
 package engine;
 
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +20,11 @@ public class GameObject {
 		this.components = new ArrayList<Component>();
 	}
 
-	public void addComponents(Component component) {
+	public void addComponent(Component component) {
 		this.components.add(component);
+		component.gameObject = this;
 	}
-	
+
 	public void update(double delta) {
 		for (Component component : components) {
 			component.update(delta);
@@ -41,5 +43,11 @@ public class GameObject {
 			}
 		}
 		return null;
+	}
+
+	public void draw(Graphics2D g2d) {
+		for (Component component : components) {
+			component.draw(g2d);
+		}
 	}
 }

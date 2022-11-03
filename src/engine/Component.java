@@ -2,7 +2,9 @@ package engine;
 
 import java.awt.Graphics2D;
 
-public abstract class Component<T> {
+public abstract class Component {
+	public GameObject gameObject;
+	
 	public void update(double delta) {
 		return;
 	}
